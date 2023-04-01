@@ -4,7 +4,6 @@
             <div class="col-2">
               <div class="dropdown">
   <select id="selection" name="selection" v-model="selection">
-    <option value="" selected disabled>Select an option</option>
     <option v-for="option in selectionOptions" :key="option.index"  :value="option.value">{{ option.label }}</option>
   </select>
 </div>
