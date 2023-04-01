@@ -2,7 +2,12 @@
     <div class="IHR_chart">
         <div class="row justify-center">
             <div class="col-2">
-                <q-select v-model="selection" :options="selectionOptions"> </q-select>
+              <div class="dropdown">
+  <select id="selection" name="selection" v-model="selection">
+    <option value="" selected disabled>Select an option</option>
+    <option v-for="option in selectionOptions" :key="option.index"  :value="option.value">{{ option.label }}</option>
+  </select>
+</div>
             </div>
         </div>
         <div v-if="loading" class="IHR_loading-spinner">
@@ -476,4 +481,28 @@ export default {
    top: 0;
    width: 100%;
 }
+</style>
+<style scoped>
+/* Styling for the dropdown */
+.dropdown select {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 16px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Styling for the dropdown options */
+.dropdown option {
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
 </style>
